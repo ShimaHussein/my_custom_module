@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="device_report_view_form" model="ir.ui.view">
+        <field name="name">device.report.view.form</field>
+        <field name="model">device.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Print Devices">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Print" class="btn-primary" type="object" name="action_print_report"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_device_report_wizard" model="ir.actions.act_window">
+        <field name="name">Print Devices</field>
+        <field name="res_model">device.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="device_report_view_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+            id="menu_device_report"
+            name="Print Device Report Excel"
+            parent="sale.menu_sale_report"
+            sequence="50"
+            action="action_device_report_wizard"/>
+
+    <!--    <menuitem>-->
+    <!--            id="menu_vehicle_root"-->
+    <!--            name="Vehicle"/>-->
+
+    <!--    <menuitem-->
+    <!--            id="menu_vehicles"-->
+    <!--            name="Vehicles"-->
+    <!--            parent="menu_vehicle_root"/>-->
+
+    <!--    <menuitem-->
+    <!--            id="menu_add_vehicles"-->
+    <!--            name="Add Vehicles"-->
+    <!--            parent="menu_vehicles"-->
+    <!--            action="action_vehicles"/>-->
+
+    <!--     <menuitem-->
+    <!--            id="menu_sale_vehicle"-->
+    <!--            name="Vehicle"-->
+    <!--            parent="sale.sale_order_menu"-->
+    <!--            sequence="50"-->
+    <!--            action="action_vehicles"/>-->
+
+
+</odoo>

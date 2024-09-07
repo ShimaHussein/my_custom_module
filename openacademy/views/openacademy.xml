@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        Course view-->
+
+        <record id="openacademy_course_view_tree" model="ir.ui.view">
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <tree string="Courses">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="openacademy_course_view_form" model="ir.ui.view">
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <form string="Course">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="responsible_id"/>
+                            </group>
+                            <notebook>
+                                <page string="Description">
+                                    <field name="description"/>
+                                </page>
+                                <page string="Sessions">
+                                    <field name="session_ids"/>
+                                    <!--                                    <tree string="Registered sessions ">-->
+                                    <!--                                        <field name="name"/>-->
+                                    <!--                                        <field name="course_id"/>-->
+                                    <!--                                    </tree>-->
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="openacademy_course_view_search" model="ir.ui.view">
+            <field name="model">openacademy.course</field>
+            <field name="arch" type="xml">
+                <search string="Course">
+                    <field name="name"/>
+                    <field name="description"/>
+
+                    <filter name="my_courses" string="My courses"
+                            domain="[('responsible_id','=',uid)]"/>
+
+                    <group string="Group by">
+                        <filter name="by_responsible" string="Responsible"
+                                context="{'group_by': 'responsible_id'}"/>
+                    </group>
+
+                </search>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+        <record id="courses_action" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">openacademy.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_my_courses': '1'}"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new course
+                </p>
+            </field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Open Academy" id="openacademy_menu_root"/>
+        <!-- menu categories -->
+        <menuitem name="Open Academy" id="openacademy_menu_1" parent="openacademy_menu_root"/>
+        <menuitem name="Courses" id="openacademy_menu_2" parent="openacademy_menu_1" action="courses_action"/>
+
+
+        <!--        Session view-->
+
+
+        <record id="openacademy_session_view_tree" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="Sessions" decoration-info="duration&lt;5" decoration-danger="duration&gt;15">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="duration" invisible="1"/>
+                    <field name="taken_seats" widget="progressbar"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="openacademy_session_view_calendar" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <calendar string="Session calendar" date_start="start_date" date_stop="end_date" color="instructor_id">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+
+        <record id="openacademy_session_view_form" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                    <sheet>
+                        <group string="General">
+                            <field name="course_id"/>
+                            <field name="name"/>
+                            <field name="instructor_id"/>
+                            <field name="active"/>
+
+                        </group>
+                        <group string="Schedule">
+                            <field name="start_date"/>
+                            <field name="duration"/>
+                            <field name="end_date"/>
+                            <field name="seats"/>
+                            <field name="taken_seats" widget="progressbar"/>
+                        </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="openacademy_session_view_Gantt" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <gantt string="Session gantt" date_start="start_date" date_stop="end_date"
+                       default_group_by="instructor_id">
+                    <field name="name"/>
+                </gantt>
+            </field>
+        </record>
+
+        <record id="openacademy_session_view_graph" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <graph string="Participations by courses">
+                    <field name="course_id"/>
+                    <field name="attendees_count" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="openacademy_session_view_pivot" model="ir.ui.view">
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <pivot string="Participations by courses">
+                    <field name="course_id"/>
+                    <field name="attendees_count" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--        <record id="openacademy_session_view_kanban" model="ir.ui.view">-->
+        <!--            <field name="model">openacademy.session</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <kanban default_group_by="course_id">-->
+        <!--                    <field name="color"/>-->
+        <!--                    <templates>-->
+        <!--                        <t t-name="kanban-box">-->
+        <!--                            <div t-attf-class="oe_kanban_global_click">-->
+        <!--                                <div class="row">-->
+        <!--                                    <div class="col-8">-->
+        <!--                                        <strong><field name="name"/></strong>-->
+        <!--                                    </div>-->
+        <!--                                    <div class="col-4 text-end">-->
+        <!--                                        <span class="badge rounded-pill"><t t-out="record.code.value"/></span>-->
+        <!--                                    </div>-->
+        <!--                                </div>-->
+        <!--                                <div>-->
+        <!--                                    <strong>Type: </strong><t t-out="record.account_type.value"/>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </t>-->
+        <!--                    </templates>-->
+        <!--                </kanban>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="session_action" model="ir.actions.act_window">
+            <field name="name">Sessions</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form,calendar,gantt,graph,pivot</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new session
+                </p>
+            </field>
+        </record>
+
+        <menuitem name="Sessions" id="session_menu" parent="openacademy_menu_1" action="session_action"/>
+
+        <record id="wizard_form_view" model="ir.ui.view">
+            <field name="model">openacademy.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Add Attendees">
+                    <group>
+                        <field name="session_ids"/>
+                        <field name="attendee_ids"/>
+                    </group>
+                    <footer>
+                        <button name="subscribe" type="object" string="Subscribe" class="oe_highlight"/>or
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="launch_session_wizard" model="ir.actions.act_window">
+            <field name="name">Add Attendees</field>
+            <field name="res_model">openacademy.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="model_openacademy_session"/>
+        </record>
+
+    </data>
+</odoo>
+
+
+        <!--access_openacademy_course,openacademy.course,model_openacademy_course,base.group_user,1,1,1,1-->
+        <!--access_openacademy_session,openacademy.session,model_openacademy_session,base.group_user,1,1,1,1-->

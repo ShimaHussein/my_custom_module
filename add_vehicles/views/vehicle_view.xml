@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="vehicles_view_tree" model="ir.ui.view">
+        <field name="name">vehicles.view.tree</field>
+        <field name="model">customer.vehicles</field>
+        <field name="arch" type="xml">
+            <tree string="Vehicles">
+                <field name="partner_id"/>
+                <field name="owner"/>
+                <field name="license_plate_number"/>
+                <field name="serial_number"/>
+                <field name="vehicle_model"/>
+                <field name="registration_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vehicles_view_form" model="ir.ui.view">
+        <field name="name">vehicles.view.form</field>
+        <field name="model">customer.vehicles</field>
+        <field name="arch" type="xml">
+            <form string="Vehicle">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="owner"/>
+                            <field name="owner_id"/>
+                            <field name="chassis_number"/>
+                            <field name="license_plate_number"/>
+                            <field name="brand"/>
+                            <field name="vehicle_weight"/>
+                        </group>
+                        <group>
+                            <field name="color"/>
+                            <field name="serial_number"/>
+                            <field name="registration_type"/>
+                            <field name="vehicle_model"/>
+                            <field name="vehicle_load_capacity"/>
+                            <field name="year_of_manufacture"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_vehicles" model="ir.actions.act_window">
+        <field name="name">Vehicles</field>
+        <field name="res_model">customer.vehicles</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Vehicle
+            </p>
+        </field>
+    </record>
+
+</odoo>
