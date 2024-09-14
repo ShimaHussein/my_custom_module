@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
 #
+from xml.dom import ValidationErr
+from xxlimited_35 import error
+
 from odoo import models, fields, api, exceptions, _
 from datetime import timedelta
+import requests
+from prompt_toolkit.validation import ValidationError
 
 
 class Course(models.Model):
@@ -22,6 +27,17 @@ class Course(models.Model):
          'UNIQUE(name)',
          'The course title must be unique'),
     ]
+
+    def get_courses(self):
+        payload = dict()
+        try:
+            response = requests.get('http://localhost:8017/v1/courses', data=payload)
+            if response.status_code == 200:
+                print("Successful")
+            else:
+                print("Fail")
+        except Exception as erorr:
+            raise ValidationError(str(erorr))
 
 
 class Session(models.Model):

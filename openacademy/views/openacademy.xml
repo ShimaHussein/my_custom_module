@@ -18,6 +18,9 @@
             <field name="model">openacademy.course</field>
             <field name="arch" type="xml">
                 <form string="Course">
+                    <header>
+                        <button name="get_courses" type="object" class="btn-primary" string="Test Call GET Courses"/>
+                    </header>
                     <sheet>
                         <group>
                             <group>
