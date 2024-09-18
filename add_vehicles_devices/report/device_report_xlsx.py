@@ -2,7 +2,7 @@ from odoo import models
 
 
 class DeviceReportXlsx(models.AbstractModel):
-    _name = 'report.add_vehicles.device_report_xlsx'
+    _name = 'report.add_vehicles_devices.device_report_xlsx'
     _inherit = 'report.report_xlsx.abstract'
 
     def generate_xlsx_report(self, workbook, data, partners):

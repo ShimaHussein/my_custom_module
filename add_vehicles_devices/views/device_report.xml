@@ -3,7 +3,7 @@
     <record id="view_device_form" model="ir.ui.view">
         <field name="name">view.device.report.form</field>
         <field name="model">customer.device</field>
-        <field name="inherit_id" ref="add_vehicles.device_view_form"/>
+        <field name="inherit_id" ref="add_vehicles_devices.device_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
                 <button name="device_report_excel" string="Print Device Report Excel" type="object"/>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_change_date_purchase" model="ir.ui.view">
+            <field name="name">change.date.purchase</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_create_invoice']" position="before">
+                    <button
+                            id="button_change_date_purchase"
+                            name="%(action_change_date_purchase)d"
+                            string="Change Date"
+                            type="action"
+                            class="btn-secondary"
+                            context="{'validate_analytic': True}"
+                            invisible="state != 'purchase'"
+                    >
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

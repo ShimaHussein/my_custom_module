@@ -24,7 +24,7 @@ class DeviceReportWizard(models.TransientModel):
             'devices': devices,
             'partner_id':customer
         }
-        return self.env.ref('add_vehicles.action_device_report_xlsx').report_action(self, data=data)
+        return self.env.ref('add_vehicles_devices.action_device_report_xlsx').report_action(self, data=data)
         # print( self.read()[0])
         # devices = self.env['customer.device.line'].search_read([])
 

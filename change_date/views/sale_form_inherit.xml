@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_confirm_sale_order" model="ir.ui.view">
+            <field name="name">confirm.sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='315']" position="before">
+                    <button
+                            id="button_confirm_sale"
+                            name="%(action_confirm_order)d"
+                            string="Change Date"
+                            type="action"
+                            class="btn-secondary"
+                            context="{'validate_analytic': True}"
+                            invisible="state != 'sale'"
+                    >
+                    </button>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

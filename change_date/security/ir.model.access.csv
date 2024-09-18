@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_change_date_order,access.change.date.order,model_change_date_order,base.group_user,1,1,1,1
+access_change_date_delivery,access.change.date.delivery,model_change_date_delivery,base.group_user,1,1,1,1
+access_change_date_invoice,access.change.date.invoice,model_change_date_invoice,base.group_user,1,1,1,1
+access_change_date_purchase,access.change.date.purchase,model_change_date_purchase,base.group_user,1,1,1,1
+
+
+
