@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record id="view_employee_inherit_header" model="ir.ui.view">
+            <field name="name">employee.inherit.header</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='coach_id']" position="after">
+                    <field name="state_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_technical" model="ir.actions.act_window">
+            <field name="name">Technical</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Employee
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

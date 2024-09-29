@@ -1,0 +1,17 @@
+<odoo>
+    <data noupdate="1">
+
+        <record id="create_form" model="website.menu">
+
+            <field name="name">Ticket</field>
+
+            <field name="url">/ticket</field>
+
+            <field name="parent_id" ref="website.main_menu"/>
+
+            <field name="sequence" type="int">100</field>
+
+        </record>
+
+    </data>
+</odoo>

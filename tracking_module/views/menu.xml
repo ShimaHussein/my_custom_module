@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+
+        <!--         Top menu item -->
+        <menuitem name="Tracking" id="tracking_module.menu_root"/>
+
+        <!--         menu categories -->
+        <menuitem name="Dashboard" id="tracking_module.menu_1" parent="tracking_module.menu_root" sequence="10"/>
+        <menuitem name="Technical" id="tracking_module.menu_2" parent="tracking_module.menu_root" sequence="20"/>
+        <menuitem name="Device" id="tracking_module.menu_3" parent="tracking_module.menu_root" sequence="30"/>
+        <menuitem name="Vehicle" id="tracking_module.menu_4" parent="tracking_module.menu_root"
+                  action="action_vehicle" sequence="40"/>
+        <menuitem name="Card" id="tracking_module.menu_5" parent="tracking_module.menu_3" action="action_card"
+                  sequence="50"/>
+        <menuitem name="Service Request" id="tracking_module.menu_6" parent="tracking_module.menu_root" sequence="60"/>
+        <menuitem name="Task" id="tracking_module.menu_7" parent="tracking_module.menu_root" sequence="70"/>
+
+        <menuitem name="Customer" id="tracking_module.menu_1-2" parent="tracking_module.menu_1"
+                  action="action_customer"  sequence="20"/>
+        <menuitem name="Sale Order" id="tracking_module.menu_1-3" parent="tracking_module.menu_1"
+                  action="action_sale_order"  sequence="30"/>
+        <menuitem name="Customer Invoice" id="tracking_module.menu_1-4" parent="tracking_module.menu_1"
+                  action="action_invoice"  sequence="40"/>
+
+
+        <menuitem name="Technical" id="tracking_module.menu_2-1" parent="tracking_module.menu_2"
+                  action="action_technical"/>
+
+
+        <menuitem name="Device" id="tracking_module.menu_3-1" parent="tracking_module.menu_3" action="action_device"/>
+        <menuitem name="Device From Delivery" id="tracking_module.menu_3-2" parent="tracking_module.menu_3"
+                  action="action_device_from_delivery"/>
+
+
+        <menuitem name="Service Request" id="tracking_module.menu_6-1" parent="tracking_module.menu_6"
+                  action="action_service_request"/>
+        <menuitem name="Status" id="tracking_module.menu_6-2" parent="tracking_module.menu_6" action="action_status"/>
+
+
+        <menuitem name="Task" id="tracking_module.menu_7-1" parent="tracking_module.menu_7" action="action_task"/>
+
+        <!--         actions -->
+
+    </data>
+</odoo>

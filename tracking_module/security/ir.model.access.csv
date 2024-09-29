@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tracking_vehicle,access.tracking.vehicle,model_tracking_vehicle,base.group_user,1,1,1,1
+access_tracking_card,access.tracking.card,model_tracking_card,base.group_user,1,1,1,1
+access_device_from_delivery,access.device.from.delivery,model_device_from_delivery,base.group_user,1,1,1,1
+access_device_from_delivery_line,access.device.from.delivery.line,model_device_from_delivery_line,base.group_user,1,1,1,1
+access_tracking_service_request,access.tracking.service.request,model_tracking_service_request,base.group_user,1,1,1,1
+access_tracking_status,access.tracking.status,model_tracking_status,base.group_user,1,1,1,1

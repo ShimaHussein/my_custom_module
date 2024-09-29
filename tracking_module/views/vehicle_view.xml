@@ -1,0 +1,92 @@
+<odoo>
+    <data>
+
+        <record id="vehicle_view_tree" model="ir.ui.view">
+            <field name="name">vehicle.tree</field>
+            <field name="model">tracking.vehicle</field>
+            <field name="arch" type="xml">
+                <tree string="Vehicle">
+                    <field name="partner_id"/>
+                    <field name="owner"/>
+                    <field name="license_plate_number"/>
+                    <field name="serial_number"/>
+                    <field name="vehicle_model"/>
+                    <field name="registration_type"/>
+                    <field name="state_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_view_form" model="ir.ui.view">
+            <field name="name">vehicle.form</field>
+            <field name="model">tracking.vehicle</field>
+            <field name="arch" type="xml">
+                <form string="Vehicle">
+                    <sheet>
+                        <div name="button_box" class="oe_button_box">
+                            <button type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                                    name="open_related_device">
+                                <div class="o_form_field o_stat_info">
+                                    <field string="Device" name="device_count" widget="statinfo"/>
+                                </div>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="owner"/>
+                                <field name="owner_id"/>
+                                <field name="chassis_number"/>
+                                <field name="license_plate_number"/>
+                                <field name="serial_number"/>
+                                <field name="registration_type"/>
+                            </group>
+                            <group>
+                                <field name="brand"/>
+                                <field name="color"/>
+                                <field name="vehicle_model"/>
+                                <field name="vehicle_weight"/>
+                                <field name="vehicle_load_capacity"/>
+                                <field name="year_of_manufacture"/>
+                                <field name="state_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_view_search" model="ir.ui.view">
+            <field name="name">vehicle.search</field>
+            <field name="model">tracking.vehicle</field>
+            <field name="arch" type="xml">
+                <search string="Vehicle Search">
+                    <field name="license_plate_number"/>
+                    <field name="owner"/>
+                    <field name="partner_id"/>
+                    <field name="serial_number"/>
+                    <field name="registration_type"/>
+                    <field name="vehicle_model"/>
+                    <filter string="Status" name="Status" domain="[]" context="{'group_by':'state_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_vehicle" model="ir.actions.act_window">
+            <field name="name">Vehicle</field>
+            <field name="res_model">tracking.vehicle</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new Vehicle
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

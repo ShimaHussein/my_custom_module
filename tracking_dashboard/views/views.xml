@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!--Action Client-->
+    <record id="tracking_dashboard_action_client" model="ir.actions.client">
+        <field name="name">Tracking Dashboard</field>
+        <field name="tag">tracking_dashboard_main</field>
+    </record>
+
+    <!-- Menu     -->
+    <menuitem id="tracking_module.menu_1-5" name="Dashboard" action="tracking_dashboard_action_client"
+              parent="tracking_module.menu_1" sequence="10"/>
+
+</odoo>
