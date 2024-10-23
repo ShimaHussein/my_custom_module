@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_base_data,access.base.data,model_base_data,base.group_user,1,1,1,1
-access_device_line,access.device.line,model_device_line,base.group_user,1,1,1,1
+access_request_quot,access.request.quot,model_request_quot,base.group_user,1,1,1,1
+access_request_quot_line,access.request.quot.line,model_request_quot_line,base.group_user,1,1,1,1
+access_make_install,access.make.install,model_make_install,base.group_user,1,1,1,1
+access_make_install_line,access.make.install.line,model_make_install_line,base.group_user,1,1,1,1
+access_make_maintenance,access.make.maintenance,model_make_maintenance,base.group_user,1,1,1,1
+access_request_support,access.request.support,model_request_support,base.group_user,1,1,1,1

@@ -16,11 +16,11 @@
         <menuitem name="Task" id="tracking_module.menu_7" parent="tracking_module.menu_root" sequence="70"/>
 
         <menuitem name="Customer" id="tracking_module.menu_1-2" parent="tracking_module.menu_1"
-                  action="action_customer"  sequence="20"/>
+                  action="action_customer" sequence="20"/>
         <menuitem name="Sale Order" id="tracking_module.menu_1-3" parent="tracking_module.menu_1"
-                  action="action_sale_order"  sequence="30"/>
+                  action="action_sale_order" sequence="30"/>
         <menuitem name="Customer Invoice" id="tracking_module.menu_1-4" parent="tracking_module.menu_1"
-                  action="action_invoice"  sequence="40"/>
+                  action="action_invoice" sequence="40"/>
 
 
         <menuitem name="Technical" id="tracking_module.menu_2-1" parent="tracking_module.menu_2"
@@ -33,11 +33,14 @@
 
 
         <menuitem name="Service Request" id="tracking_module.menu_6-1" parent="tracking_module.menu_6"
-                  action="action_service_request"/>
-        <menuitem name="Status" id="tracking_module.menu_6-2" parent="tracking_module.menu_6" action="action_status"/>
+                  action="action_service_request" sequence="10"/>
+        <menuitem name="Customer Service Request" id="tracking_module.menu_6-2" parent="tracking_module.menu_6"
+                  action="action_customer_service_request" sequence="20"/>
+        <menuitem name="Status" id="tracking_module.menu_6-3" parent="tracking_module.menu_6" action="action_status"
+                  sequence="30"/>
 
 
-        <menuitem name="Task" id="tracking_module.menu_7-1" parent="tracking_module.menu_7" action="action_task"/>
+        <menuitem name="Task" id="tracking_module.menu_7-1" parent="tracking_module.menu_7" action="action_task_view"/>
 
         <!--         actions -->
 

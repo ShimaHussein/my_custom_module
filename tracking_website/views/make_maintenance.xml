@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="make_main" name="Ticket">
+        <t t-call="website.layout">
+            <section class="s_comparisons pt32 pb32">
+                <div id="form_temp">
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <div class="container">
+                            <form method="post" action="/create/web_form_record">
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <input type="hidden" name="csrf_token"
+                                           t-att-value="request.csrf_token()"/>
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">Your Name</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="name"
+                                               id="name"
+                                               class="form-control"
+                                               placeholder="Mitchel Admin"
+                                               required="required"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">Your Email</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="email" name="email"
+                                               id="email"
+                                               class="form-control"
+                                               placeholder="mitchel_admin@gmail.com"
+                                               required="required"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group" id="vehicle_report">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Your Vehicle
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <select name="vehicle_id"
+                                                id="vehicle_id"
+                                                class="form-control"
+                                                placeholder="Select "
+                                                required="required"
+                                                multiple="multiple"
+                                                style="width: 1290px; height: 90px;">
+                                            <option value="null"></option>
+                                            <t t-foreach='vehicle_rec'
+                                               t-as="vehicle">
+                                                <option
+                                                        t-att-value="vehicle.id"
+                                                        t-esc="vehicle.license_plate_number"/>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Reason for Request
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="reason"
+                                               id="reason"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Responsible Name
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="res_name"
+                                               id="res_name"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Phone Number
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="phone_num"
+                                               id="phone_num"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Description
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="description"
+                                               id="description"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <br/>
+                                    <div class="clearfix oe_login_buttons">
+                                        <span>
+                                            <button type="submit" class="custom_create btn btn-primary" style="margin: 30px 0px;">Submit
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <!--        !&#45;&#45; JavaScript to manage Many2many Field -->
+        <!-- Include jQuery before Select2 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Include Select2 for better UI -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+        <!-- Initialize Select2 on the tags select field -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            $('#vehicle_id').select2({
+            placeholder: "Select Vehicles",
+            allowClear: true
+            });
+            });
+
+        </script>
+    </template>
+</odoo>

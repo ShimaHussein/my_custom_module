@@ -24,6 +24,7 @@ Long description of module's purpose
     'data': [
         'security/ir.model.access.csv',
         'views/customer_view.xml',
+        'views/customer_service_request.xml',
         'views/card_view.xml',
         'views/device_view.xml',
         'views/device_from_delivery.xml',

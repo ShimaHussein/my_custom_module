@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Change Date",
+    'name': "tracking_test",
 
     'summary': "Short (1 phrase/line) summary of the module's purpose",
 
@@ -18,21 +18,14 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale', 'purchase', 'account', 'stock'],
+    'depends': ['base', 'website', 'web'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'wizard/change_date_order_view.xml',
-        'wizard/change_date_delivery_view.xml',
-        'wizard/change_date_invoice_view.xml',
-        'wizard/change_date_purchase_view.xml',
         'views/views.xml',
-        'views/sale_form_inherit.xml',
-        'views/delivery_form_inherit.xml',
-        'views/invoice_form_inherit.xml',
-        'views/purchase_form_inherit.xml',
         'views/templates.xml',
+        'views/website_form_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

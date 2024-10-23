@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="request_support_tpr" name="Ticket">
+        <t t-call="website.layout">
+            <section class="s_comparisons pt32 pb32">
+                <div id="form_temp">
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <div class="container">
+                            <form method="post" action="/create/web_form_record" id="support_form">
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <input type="hidden" name="csrf_token"
+                                           t-att-value="request.csrf_token()"/>
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">Your Name</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="name"
+                                               id="name"
+                                               class="form-control"
+                                               placeholder="Mitchel Admin"
+                                               required="required"/>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">Your Email</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="email" name="email"
+                                               id="email"
+                                               class="form-control"
+                                               placeholder="mitchel_admin@gmail.com"
+                                               required="required"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="selection_field">Support for</label>
+                                        <select name="support_for" id="support_for" class="form-control">
+                                            <option value=""></option>
+                                            <option value="option1">Training</option>
+                                            <option value="option2">Solve Problem</option>
+                                            <option value="option3">Create Report</option>
+                                        </select>
+                                    </div>
+                                    <br/>
+                                    <div class="form-group" id="date_training">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Date for Training
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="date" name="date_t"
+                                               id="date_t"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group" id="description_training">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Description
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="description_t"
+                                               id="description_t"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group" id="note_training">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Note
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <textarea name="note_t"
+                                                  id="note_t" rows="5" cols="50"
+                                                  class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="form-group" id="problem_p">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Problem Type
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="problem_type"
+                                               id="problem_type"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group" id="description_problem">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Description
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="text" name="description_p"
+                                               id="description_p"
+                                               class="form-control"/>
+                                    </div>
+                                    <div class="form-group" id="file_problem">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Upload Image
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="file" name="file"
+                                               id="file"
+                                               class="form-control"/>
+                                    </div>
+                                    <div class="form-group" id="note_problem">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Note
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <textarea name="note_p"
+                                                  id="note_p" rows="5" cols="50"
+                                                  class="form-control"></textarea>
+                                    </div>
+
+                                    <div class="form-group" id="report_r">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Report Type
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <select name="report_type" id="report_type" class="form-control">
+                                            <option value=""></option>
+                                            <option value="option1">PDF</option>
+                                            <option value="option2">Excel</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" id="fields_report">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Fields in Report
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <select name="fields_in_report" id="fields_in_report" class="form-control"
+                                                required="required"
+                                                multiple="multiple"
+                                                style="width: 1290px; height: 100px;">
+                                            <option value="null"></option>
+                                            <t t-foreach="model_fields" t-as="field">
+                                                <option t-att-value="field.id">
+                                                    <t t-esc="field.field_description"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" id="vehicle_report">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Your Vehicle
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <select name="vehicle_id"
+                                                id="vehicle_id"
+                                                class="form-control"
+                                                required="required"
+                                                multiple="multiple"
+                                                style="width: 1290px; height: 100px;">
+                                            <option value="null"></option>
+                                            <t t-foreach='vehicle_rec'
+                                               t-as="vehicle">
+                                                <option
+                                                        t-att-value="vehicle.id"
+                                                        t-esc="vehicle.license_plate_number"/>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group" id="start_date_report">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                Start Date
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="date" name="start_date"
+                                               id="start_date"
+                                               class="form-control"/>
+                                    </div>
+
+                                    <div class="form-group" id="end_date_report">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px" for="contact1">
+                                            <span class="s_website_form_label_content">
+                                                End Date
+                                            </span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <input type="date" name="end_date"
+                                               id="end_date"
+                                               class="form-control"/>
+                                    </div>
+                                    <div class="clearfix oe_login_buttons">
+                                        <span>
+                                            <button type="submit" class="custom_create btn btn-primary"
+                                                    style="margin: 30px 0px;">Submit
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </t>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function () {
+            // Bind change event on the support_for dropdown
+            document.getElementById('support_for').addEventListener('change', function() {
+            TrainingDetailsField();
+            ProblemDetailsField();
+            ReportDetailsField();
+            });
+
+            // Function to show/hide the details field
+            function TrainingDetailsField() {
+            var selectedValue = document.getElementById('support_for').value;
+            var dateTraining = document.getElementById('date_training');
+            var descriptionTraining = document.getElementById('description_training');
+            var noteTraining = document.getElementById('note_training');
+
+            // Check if the selected value should show or hide the x_details field
+            if (selectedValue === 'option1') {
+            dateTraining.style.display = 'block'; // Show the field
+            descriptionTraining.style.display = 'block'; // Show the field
+            noteTraining.style.display = 'block'; // Show the field
+            } else {
+            dateTraining.style.display = 'none'; // Hide the field
+            descriptionTraining.style.display = 'none'; // Hide the field
+            noteTraining.style.display = 'none'; // Hide the field
+            }
+            }
+
+            function ProblemDetailsField() {
+            var selectedValue = document.getElementById('support_for').value;
+            var problemP = document.getElementById('problem_p');
+            var descriptionProblem = document.getElementById('description_problem');
+            var noteProblem = document.getElementById('note_problem');
+            var fileProblem = document.getElementById('file_problem');
+
+            // Check if the selected value should show or hide the x_details field
+            if (selectedValue === 'option2') {
+            problemP.style.display = 'block'; // Show the field
+            descriptionProblem.style.display = 'block'; // Show the field
+            noteProblem.style.display = 'block'; // Show the field
+            fileProblem.style.display = 'block'; // Show the field
+            } else {
+            problemP.style.display = 'none'; // Hide the field
+            descriptionProblem.style.display = 'none'; // Hide the field
+            noteProblem.style.display = 'none'; // Hide the field
+            fileProblem.style.display = 'none'; // Hide the field
+            }
+            }
+
+            function ReportDetailsField() {
+            var selectedValue = document.getElementById('support_for').value;
+            var reportR = document.getElementById('report_r');
+            var fieldsReport = document.getElementById('fields_report');
+            var vehicleReport = document.getElementById('vehicle_report');
+            var startDateReport = document.getElementById('start_date_report');
+            var endDateReport = document.getElementById('end_date_report');
+
+            // Check if the selected value should show or hide the x_details field
+            if (selectedValue === 'option3') {
+            reportR.style.display = 'block'; // Show the field
+            fieldsReport.style.display = 'block'; // Show the field
+            vehicleReport.style.display = 'block'; // Show the field
+            startDateReport.style.display = 'block'; // Show the field
+            endDateReport.style.display = 'block'; // Show the field
+            } else {
+            reportR.style.display = 'none'; // Hide the field
+            fieldsReport.style.display = 'none'; // Hide the field
+            vehicleReport.style.display = 'none'; // Hide the field
+            startDateReport.style.display = 'none'; // Hide the field
+            endDateReport.style.display = 'none'; // Hide the field
+            }
+            }
+
+
+            // Initialize the form visibility state on page load
+            TrainingDetailsField(); // Call it once to initialize based on the default value
+            ProblemDetailsField(); // Call it once to initialize based on the default value
+            ReportDetailsField(); // Call it once to initialize based on the default value
+            });
+        </script>
+
+        <!--        !&#45;&#45; JavaScript to manage Many2many Field -->
+        <!-- Include jQuery before Select2 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- Include Select2 for better UI -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+        <!-- Initialize Select2 on the tags select field -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            $('#fields_in_report').select2({
+            placeholder: "Select Fields",
+            allowClear: true
+            });
+            });
+
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            $('#vehicle_id').select2({
+            placeholder: "Select Vehicles",
+            allowClear: true
+            });
+            });
+        </script>
+    </template>
+</odoo>

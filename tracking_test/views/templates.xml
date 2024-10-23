@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="create_order_form" name="Create Order Form">
+        <t t-name="TicketPageMain">
+            <t t-call="website.layout">
+                <section class="s_comparisons pt32 pb32">
+                    <div id="form_temp">
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="container">
+                                <form method="POST" action="/create/order/submit">
+                                    <div class="form-group">
+                                        <label for="name">Order Name</label>
+                                        <input type="text" name="name" required="required"/>
+                                    </div>
+
+                                    <!-- One2many Fields (Order Lines) -->
+                                    <div id="order_lines">
+                                        <h4>Order Lines</h4>
+                                        <div class="order_line">
+                                            <div class="form-group">
+                                                <label for="product_name">Product Name</label>
+                                                <input type="text" name="product_name_0" required="required"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="quantity">Quantity</label>
+                                                <input type="number" name="quantity_0" required="required"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" id="add_line">Add Line</button>
+
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </t>
+        </t>
+        <script>
+            var lineCount = 1;
+            document.getElementById('add_line').addEventListener('click', function() {
+            var newLine = document.createElement('div');
+            newLine.classList.add('order_line');
+            newLine.id = 'line_' + lineCount;
+            newLine.innerHTML = `
+            <div class="form-group">
+                <label for="product_name">Product Name</label>
+                <input type="text" name="product_name_` + lineCount + `" required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" name="quantity_` + lineCount + `" required="required"/>
+            </div>
+            <button type="button" class="remove_line">Remove</button>
+            `;
+            document.getElementById('order_lines').appendChild(newLine);
+            lineCount++;
+            });
+
+            // Event delegation for removing lines
+            document.getElementById('order_lines').addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove_line')) {
+            e.target.parentElement.parentElement.remove();
+            }
+            });
+        </script>
+    </template>
+</odoo>
+

@@ -9,6 +9,7 @@
                 <xpath expr="//field[@name='payment_term_id']" position="after">
                     <field name="service_id"/>
                 </xpath>
+
                 <xpath expr="//notebook/page[@name='order_lines']" position="after">
                     <page string="Vehicle lines">
                         <field name="vehicle_ids">
@@ -17,6 +18,5 @@
                 </xpath>
             </field>
         </record>
-
     </data>
 </odoo>

@@ -18,17 +18,21 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website', ],
+    'depends': ['base', 'website', 'web'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
         'views/ticket_page.xml',
-        'views/ticket_data.xml',
+        'views/request_quot.xml',
+        'views/make_install.xml',
+        'views/make_maintenance.xml',
+        'views/request_support.xml',
 
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+
 }

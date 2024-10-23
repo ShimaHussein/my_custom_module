@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="test1" name="Create Order Form">
+        <t t-name="tracking_test.form_template">
+            <t t-call="website.layout">
+                <section class="s_comparisons pt32 pb32">
+                    <div id="form_temp">
+                        <div id="wrap" class="oe_structure oe_empty">
+                            <div class="container">
+                                <form action="/your/form/submit/url" method="POST">
+                                    <div class="form-group">
+                                        <label for="x_type">Type</label>
+                                        <select name="x_type" id="x_type" class="form-control">
+                                            <option value="option_1">Option 1</option>
+                                            <option value="option_2">Option 2</option>
+                                            <option value="option_3">Option 3</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- The field to show/hide -->
+                                    <div class="form-group" id="x_details_group" style="display: none;">
+                                        <label for="x_details">Details</label>
+                                        <input type="text" name="x_details" id="x_details" class="form-control"/>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </t>
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function () {
+                // Bind change event on the x_type dropdown
+                document.getElementById('x_type').addEventListener('change', function() {
+                toggleDetailsField();
+                });
+
+                // Function to show/hide the x_details field
+                function toggleDetailsField() {
+                var selectedValue = document.getElementById('x_type').value;
+                var detailsGroup = document.getElementById('x_details_group');
+
+                // Check if the selected value should show or hide the x_details field
+                if (selectedValue === 'option_2') {
+                detailsGroup.style.display = 'block'; // Show the field
+                } else {
+                detailsGroup.style.display = 'none'; // Hide the field
+                }
+                }
+
+                // Initialize the form visibility state on page load
+                toggleDetailsField(); // Call it once to initialize based on the default value
+                });
+            </script>
+        </t>
+    </template>
+</odoo>

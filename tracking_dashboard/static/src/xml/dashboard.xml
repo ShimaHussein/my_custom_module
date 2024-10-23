@@ -10,30 +10,114 @@
                        </div>
                    </div>
                </div>
-               <div class="row m-3">
-                    <div class="col-lg-7">
-                        <div class="row">
-                            <div class="row">
-                                 <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickCustomer">
-                                      <div class="project_box" style="height: 180px">
-                                            <div class="row">
-                                                <div class="col-md-12 mt-5">
-                                                </div>
-                                                <div class="col-md-12 mt-3">
-                                                    <span class="project_count"
-                                                         id="total_projects">
-                                                         <t t-esc="this.customer_state.partner_count"/>
-                                                    </span>
-                                                    <br/>
-                                                    <span class="text-primary fw-bold">Customer</span>
-                                                </div>
-                                            </div>
-                                      </div>
+             <div class="row m-3">
+                     <div class="row">
+                         <div class="row">
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickCustomer">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.customer_state.partner_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Customer</span>
+                                         </div>
+                                     </div>
                                  </div>
-                            </div>
-                        </div>
-                    </div>
-              </div>
+                             </div>
+
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickTechnical">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.technical_state.technical_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Technical</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickDevice">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.device_state.device_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Device</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickVehicle">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.vehicle_state.vehicle_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Vehicle</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickServiceRequest">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.service_request_state.service_request_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Service Request</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div id="total_projects_main" class="col-md-6 mt-4" t-on-click="_onClickTask">
+                                 <div class="project_box" style="height: 180px">
+                                     <div class="row">
+                                         <div class="col-md-12 mt-5">
+                                         </div>
+                                         <div class="col-md-12 mt-3">
+                                             <span class="project_count"
+                                                   id="total_projects">
+                                                 <t t-esc="this.task_state.task_count"/>
+                                             </span>
+                                             <br/>
+                                             <span class="text-primary fw-bold">Task</span>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+             </div>
          </div>
     </t>
 </template>

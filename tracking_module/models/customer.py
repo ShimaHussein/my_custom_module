@@ -8,10 +8,10 @@ class Partner(models.Model):
 
     contract_date = fields.Date(string="Contract Date", required=True, tracking=True)
     field_track = fields.Char(string="Field")
-    sales_person_track = fields.Many2one('res.users', string='Salesperson', tracking=True)
-    city_track = fields.Char(string="City")
+    sales_person_track = fields.Many2one('res.users', string='Sales Person', tracking=True)
+    city_track = fields.Char(string="City of Customer")
     device_count = fields.Integer(string="Device Count", compute='_compute_device_count')
-    picking_count = fields.Integer(string="Device Count",compute='_compute_picking_count')
+    picking_count = fields.Integer(string="Picking Count",compute='_compute_picking_count')
     vehicle_count = fields.Integer(string="Vehicle Count",compute='_compute_vehicle_count')
 
 

@@ -8,6 +8,22 @@ class SaleOrder(models.Model):
 
     service_id = fields.Many2one('tracking.service.request', string='Service Request', tracking=True)
     vehicle_ids = fields.Many2many('tracking.vehicle', string="Vehicle")
+    service_request_count = fields.Integer(string="Service Request Count",compute='_compute_service_request_count')
+
+    # def _compute_service_request_count(self):
+    #     for rec in self:
+    #         service_request_count = self.env['tracking.service.request'].search_count([()])
+    #         rec.service_request_count = service_request_count
+    #
+    # def open_related_service_request(self):
+    #     return {
+    #         'name': 'Service Request',
+    #         'view_mode': 'tree,form',
+    #         'res_model': 'tracking.service.request',
+    #         'type': 'ir.actions.act_window',
+    #         'domain': [()],
+    #         'target': 'current',
+    #     }
 
 
 # class SaleOrderLine(models.Model):

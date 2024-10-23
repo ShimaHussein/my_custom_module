@@ -1,17 +1,39 @@
 <odoo>
     <data noupdate="1">
 
-        <record id="create_form" model="website.menu">
-
+        <record id="ticket_menu" model="website.menu">
             <field name="name">Ticket</field>
-
             <field name="url">/ticket</field>
-
             <field name="parent_id" ref="website.main_menu"/>
-
             <field name="sequence" type="int">100</field>
-
         </record>
 
+         <record id="request_new_quotation" model="website.menu">
+            <field name="name">Request New Quotation</field>
+            <field name="url">/ticket/new-quotation</field>
+            <field name="parent_id" ref="tracking_website.ticket_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+
+        <record id="make_installation" model="website.menu">
+            <field name="name">Make Installation</field>
+            <field name="url">/ticket/make-installation</field>
+            <field name="parent_id" ref="tracking_website.ticket_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+
+        <record id="make_maintenance" model="website.menu">
+            <field name="name">Make Maintenance</field>
+            <field name="url">/ticket/make-maintenance</field>
+            <field name="parent_id" ref="tracking_website.ticket_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
+
+        <record id="request_support" model="website.menu">
+            <field name="name">Request Support</field>
+            <field name="url">/ticket/request-support</field>
+            <field name="parent_id" ref="tracking_website.ticket_menu"/>
+            <field name="sequence" type="int">10</field>
+        </record>
     </data>
 </odoo>
