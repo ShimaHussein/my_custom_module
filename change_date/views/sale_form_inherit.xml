@@ -6,18 +6,28 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//button[@name='315']" position="before">
+                <xpath expr="//button[@name='action_quotation_send']" position="before">
                     <button
                             id="button_confirm_sale"
                             name="%(action_confirm_order)d"
                             string="Change Date"
                             type="action"
+                            groups="base.group_system"
                             class="btn-secondary"
                             context="{'validate_analytic': True}"
                             invisible="state != 'sale'"
                     >
                     </button>
                 </xpath>
+
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="invisible">state != 'draft'</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                
             </field>
         </record>
     </data>
